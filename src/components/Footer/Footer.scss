@@ -1,0 +1,32 @@
+section {
+  background: #fff;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+
+  &-info {
+    color: #281756;
+    line-height: 3.4rem;
+    font-size: 1.7rem;
+    max-width: 40%;
+  }
+
+  &-map {
+    max-width: 60%;
+    padding-left: 47px;
+  }
+}
+
+.copyright {
+  margin-top: 1rem;
+  background-color: #ffd60a;
+  padding: 10px 0px;
+  color: #000;
+
+  p {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+}

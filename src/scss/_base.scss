@@ -1,0 +1,72 @@
+@import "./mixin";
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+
+  @include tablet {
+    font-size: 50%;
+  }
+}
+
+.container {
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.hover {
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.hover1 {
+  &:hover {
+    background-color: rgba(40, 23, 86, 0.9) !important;
+  }
+}
+
+.hover2 {
+  &:hover {
+    background-color: #EEEEEE !important;
+  }
+}
+
+.write {
+  margin-top: 3rem;
+  font-size: 1.8rem;
+  line-height: 3rem;
+
+  img {
+    max-width: 850px;
+    height: auto;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7a7a9d;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #dde1ef;
+  border-radius: 3px;
+}
