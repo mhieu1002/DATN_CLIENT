@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import SideBar from "../components/SideBar/SideBar";
+import "react-quill/dist/quill.core.css";
 
 const Article = () => {
   const [post, setPost] = useState(null);
@@ -22,6 +23,8 @@ const Article = () => {
     fetchPost();
   }, [title]);
 
+  console.log(post);
+
   if (!post) {
     return <div>Loading...</div>;
   }
@@ -35,8 +38,8 @@ const Article = () => {
   return (
     <div className="article">
       <div className="container">
-        <div style={{ display: "flex"}}>
-          <div style={{ marginTop: "1.6rem", width: "75%"}}>
+        <div style={{ display: "flex" }}>
+          <div style={{ marginTop: "1.6rem", width: "75%" }}>
             <h2
               style={{
                 fontSize: "1.8rem",
@@ -47,15 +50,27 @@ const Article = () => {
               {post.title}
             </h2>
             <p
-              style={{ fontSize: "1.6rem", lineHeight: "3rem", color: "#666" }}
+              style={{
+                fontSize: "1.6rem",
+                lineHeight: "3.5rem",
+                color: "#666",
+                fontStyle: "italic",
+              }}
             >
-              Ngày đăng: {post.date}
+              Ngày đăng: {post.date} - Lượt xem: {post.views}
             </p>
             <div style={{ marginTop: "3rem" }}>
-              <audio style={{ width: "100%", height: "35px" }} controls>
-                <source type="audio.wav" />
+              <audio
+                style={{ width: "100%", height: "35px" }}
+                controls
+                autoPlay
+              >
+                <source src={post.audioUrl} type="audio/wav" />
               </audio>
-              <div className="write" dangerouslySetInnerHTML={{ __html: post.content }}></div>
+              <div
+                className="write view ql-editor"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              ></div>
             </div>
           </div>
           <SideBar />

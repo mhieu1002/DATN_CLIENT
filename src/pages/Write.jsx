@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
+import { Backdrop, CircularProgress } from "@mui/material";
 
 const Write = () => {
   const [title, setTitle] = useState("");
@@ -11,6 +12,7 @@ const Write = () => {
   const [date, setDate] = useState("");
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
@@ -25,6 +27,7 @@ const Write = () => {
       );
       const imageUrl = response.data.secure_url;
       setImageUrl(imageUrl);
+      console.log(imageUrl);
 
       // Cập nhật giá trị của input file
       event.target.value = "";
@@ -92,6 +95,7 @@ const Write = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     const post = {
       title,
@@ -132,6 +136,8 @@ const Write = () => {
         progress: undefined,
         theme: "light",
       });
+    } finally {
+      setIsLoading(false); 
     }
   };
 
@@ -281,6 +287,16 @@ const Write = () => {
         </button>
       </form>
       <ToastContainer style={{ fontSize: "1.3rem" }} />
+      {isLoading ? (
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={isLoading}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
