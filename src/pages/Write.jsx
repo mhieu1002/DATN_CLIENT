@@ -46,11 +46,6 @@ const Write = () => {
     console.log(category);
   };
 
-  const handleDateChange = (event) => {
-    setDate(event.target.value);
-    console.log(date);
-  };
-
   const handleContentChange = (value) => {
     setContent(value);
     console.log(content);
@@ -185,19 +180,6 @@ const Write = () => {
           <option value="Thông báo">Thông báo</option>
           <option value="Tin tức - sự kiện">Tin tức - sự kiện</option>
         </select>
-        <input
-          style={{
-            border: "1px solid #000",
-            borderRadius: "1rem",
-            width: "100%",
-            padding: "1.3rem 2rem",
-            fontSize: "1.5rem",
-            marginBottom: "3rem",
-          }}
-          type="datetime-local"
-          value={date}
-          onChange={handleDateChange}
-        />
         <ReactQuill
           value={content}
           onChange={handleContentChange}
