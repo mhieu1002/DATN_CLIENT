@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import {Helmet} from "react-helmet";
 import SideBar from "../components/SideBar/SideBar";
 import "react-quill/dist/quill.core.css";
 
@@ -37,6 +38,11 @@ const Article = () => {
 
   return (
     <div className="article">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{post.title}</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="container">
         <div style={{ display: "flex" }}>
           <div style={{ marginTop: "1.6rem", width: "75%" }}>

@@ -8,6 +8,7 @@ import Scroll from "./components/Scroll/Scroll";
 import Article from "./pages/Article";
 import Write from "./pages/Write";
 import ScrollToTop from "./hooks/useScrollToTop";
+import Search from "./pages/Search";
 
 const Layout = () => {
   return (
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
       {
         path: "/write",
         element: <Write />,
+      },
+
+      {
+        path: "/tim-kiem/:keyword",
+        element: <Search />,
       },
     ],
   },

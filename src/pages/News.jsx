@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SideBar from "../components/SideBar/SideBar";
 import axios from "axios";
+import {Helmet} from "react-helmet";
 
 const API_URL = "http://localhost:8000";
 
@@ -25,6 +26,11 @@ const News = () => {
 
   return (
     <div className="news">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Tin tức</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="container">
         <h2
           style={{ fontSize: "1.8rem", fontWeight: "700", marginTop: "1rem" }}

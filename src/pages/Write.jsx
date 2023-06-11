@@ -5,6 +5,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { Backdrop, CircularProgress } from "@mui/material";
+import {Helmet} from "react-helmet";
 
 const Write = () => {
   const [title, setTitle] = useState("");
@@ -138,6 +139,11 @@ const Write = () => {
 
   return (
     <div style={{ marginTop: "3rem" }}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Tạo bài viết</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <h1
         style={{
           textAlign: "center",

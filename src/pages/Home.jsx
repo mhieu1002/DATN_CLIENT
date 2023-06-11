@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Banner from "../components/Banner/Banner";
 import axios from "axios";
+import {Helmet} from "react-helmet";
 
 const Home = () => {
   const [data, setData] = useState({ posts: [], news: [] });
@@ -28,6 +29,11 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>UTC2</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <Banner />
 
       <div className="news">

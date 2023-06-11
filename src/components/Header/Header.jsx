@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
 
@@ -36,6 +36,8 @@ const Header = () => {
     },
   ];
 
+  const [searchKeyword, setSearchKeyword] = useState("");
+
   return (
     <header>
       <div className="header">
@@ -50,8 +52,13 @@ const Header = () => {
               </Link>
             </div>
             <div className="header-search">
-              <input type="text" placeholder="Nhập từ khóa cần tìm" />
-              <span>Tìm kiếm</span>
+              <input
+                type="text"
+                placeholder="Nhập từ khóa cần tìm"
+                value={searchKeyword}
+                onChange={(event) => setSearchKeyword(event.target.value)}
+              />
+              <span onClick={() => window.location.href = `/tim-kiem/${searchKeyword}`}>Tìm kiếm</span>
             </div>
           </div>
         </div>
